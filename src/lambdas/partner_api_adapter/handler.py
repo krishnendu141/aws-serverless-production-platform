@@ -1,0 +1,1 @@
+import logging\nlogger = logging.getLogger('tf.partner_api_adapter')\nlogger.setLevel(logging.INFO)\n\ndef lambda_handler(event, context):\n    logger.info('Stub handler executed', extra={'function':'partner_api_adapter'})\n    return {'status':'ok','function':'partner_api_adapter'}\n

@@ -1,0 +1,1 @@
+import logging\nlogger = logging.getLogger('tf.request_auth_validator')\nlogger.setLevel(logging.INFO)\n\ndef lambda_handler(event, context):\n    logger.info('Stub handler executed', extra={'function':'request_auth_validator'})\n    return {'status':'ok','function':'request_auth_validator'}\n

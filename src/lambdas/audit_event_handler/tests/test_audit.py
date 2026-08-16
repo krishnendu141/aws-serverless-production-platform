@@ -1,0 +1,1 @@
+from src.lambdas.audit_event_handler.service import record_audit\n\n\ndef test_audit_record():\n    event = {'event_type':'TicketCreated','entity_id':'TCK-1','payload':{},'actor':'test'}\n    out = record_audit(event)\n    assert out['status'] == 'recorded'\n    assert out['event_type'] == 'TicketCreated'\n

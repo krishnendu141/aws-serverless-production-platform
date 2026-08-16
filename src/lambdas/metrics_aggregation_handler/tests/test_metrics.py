@@ -1,0 +1,1 @@
+from src.lambdas.metrics_aggregation_handler.service import aggregate_metrics\n\n\ndef test_aggregate():\n    m = [{'latency':100},{'latency':200},300]\n    out = aggregate_metrics(m)\n    assert out['count'] == 3\n    assert 'avg' in out\n

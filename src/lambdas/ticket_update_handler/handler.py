@@ -1,0 +1,1 @@
+import logging\nlogger = logging.getLogger('tf.ticket_update_handler')\nlogger.setLevel(logging.INFO)\n\ndef lambda_handler(event, context):\n    logger.info('Stub handler executed', extra={'function':'ticket_update_handler'})\n    return {'status':'ok','function':'ticket_update_handler'}\n

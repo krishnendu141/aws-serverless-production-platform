@@ -1,0 +1,1 @@
+import logging\nlogger = logging.getLogger('tf.orphan_request_detector')\nlogger.setLevel(logging.INFO)\n\ndef lambda_handler(event, context):\n    logger.info('Stub handler executed', extra={'function':'orphan_request_detector'})\n    return {'status':'ok','function':'orphan_request_detector'}\n

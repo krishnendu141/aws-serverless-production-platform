@@ -1,0 +1,1 @@
+import logging\nlogger = logging.getLogger('tf.billing_routing_handler')\nlogger.setLevel(logging.INFO)\n\ndef lambda_handler(event, context):\n    logger.info('Stub handler executed', extra={'function':'billing_routing_handler'})\n    return {'status':'ok','function':'billing_routing_handler'}\n

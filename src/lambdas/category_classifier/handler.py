@@ -1,0 +1,1 @@
+import logging\nlogger = logging.getLogger('tf.category_classifier')\nlogger.setLevel(logging.INFO)\n\ndef lambda_handler(event, context):\n    logger.info('Stub handler executed', extra={'function':'category_classifier'})\n    return {'status':'ok','function':'category_classifier'}\n

@@ -1,0 +1,1 @@
+import logging\nlogger = logging.getLogger('tf.event_replay_handler')\nlogger.setLevel(logging.INFO)\n\ndef lambda_handler(event, context):\n    logger.info('Stub handler executed', extra={'function':'event_replay_handler'})\n    return {'status':'ok','function':'event_replay_handler'}\n

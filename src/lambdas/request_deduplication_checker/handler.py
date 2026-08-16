@@ -1,0 +1,1 @@
+import logging\nlogger = logging.getLogger('tf.request_deduplication_checker')\nlogger.setLevel(logging.INFO)\n\ndef lambda_handler(event, context):\n    logger.info('Stub handler executed', extra={'function':'request_deduplication_checker'})\n    return {'status':'ok','function':'request_deduplication_checker'}\n

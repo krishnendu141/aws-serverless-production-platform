@@ -1,0 +1,1 @@
+import logging\nlogger = logging.getLogger('tf.portal_request_adapter')\nlogger.setLevel(logging.INFO)\n\ndef lambda_handler(event, context):\n    logger.info('Stub handler executed', extra={'function':'portal_request_adapter'})\n    return {'status':'ok','function':'portal_request_adapter'}\n

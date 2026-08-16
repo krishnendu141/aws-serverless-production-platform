@@ -1,0 +1,1 @@
+import logging\nlogger = logging.getLogger('tf.supervisor_notification_handler')\nlogger.setLevel(logging.INFO)\n\ndef lambda_handler(event, context):\n    logger.info('Stub handler executed', extra={'function':'supervisor_notification_handler'})\n    return {'status':'ok','function':'supervisor_notification_handler'}\n

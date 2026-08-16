@@ -1,0 +1,1 @@
+import logging\nlogger = logging.getLogger('tf.attachment_validator')\nlogger.setLevel(logging.INFO)\n\ndef lambda_handler(event, context):\n    logger.info('Stub handler executed', extra={'function':'attachment_validator'})\n    return {'status':'ok','function':'attachment_validator'}\n

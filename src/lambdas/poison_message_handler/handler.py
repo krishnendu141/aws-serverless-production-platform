@@ -1,0 +1,1 @@
+import logging\nlogger = logging.getLogger('tf.poison_message_handler')\nlogger.setLevel(logging.INFO)\n\ndef lambda_handler(event, context):\n    logger.info('Stub handler executed', extra={'function':'poison_message_handler'})\n    return {'status':'ok','function':'poison_message_handler'}\n

@@ -1,0 +1,1 @@
+from src.lambdas.customer_notification_handler.service import notify_customer\n\n\ndef test_notify_customer():\n    event = {'customer_id':'cust-1','message':'Your ticket has been created'}\n    out = notify_customer(event)\n    assert out['status'] == 'notified'\n    assert out['customer_id'] == 'cust-1'\n

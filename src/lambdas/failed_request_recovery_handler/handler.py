@@ -1,0 +1,1 @@
+import logging\nlogger = logging.getLogger('tf.failed_request_recovery_handler')\nlogger.setLevel(logging.INFO)\n\ndef lambda_handler(event, context):\n    logger.info('Stub handler executed', extra={'function':'failed_request_recovery_handler'})\n    return {'status':'ok','function':'failed_request_recovery_handler'}\n

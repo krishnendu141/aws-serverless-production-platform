@@ -1,0 +1,5 @@
+{
+  "customer_id": "cust-res-001",
+  "channel": "mobile",
+  "body": {"text": "Internet has been down since 10 AM. No connectivity."}
+}

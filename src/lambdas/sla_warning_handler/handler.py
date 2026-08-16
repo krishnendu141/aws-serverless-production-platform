@@ -1,0 +1,1 @@
+import logging\nlogger = logging.getLogger('tf.sla_warning_handler')\nlogger.setLevel(logging.INFO)\n\ndef lambda_handler(event, context):\n    logger.info('Stub handler executed', extra={'function':'sla_warning_handler'})\n    return {'status':'ok','function':'sla_warning_handler'}\n

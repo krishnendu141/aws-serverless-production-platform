@@ -1,0 +1,26 @@
+name: Deploy to QA (requires approval)
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  id-token: write
+  deployments: write
+
+jobs:
+  plan-and-apply:
+    runs-on: ubuntu-latest
+    environment: qa
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure AWS Credentials via OIDC
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.QA_DEPLOY_ROLE_ARN }}
+          aws-region: ap-south-1
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+      - name: Terraform Init
+        run: terraform -chdir=terraform/environments/qa init -input=false
+      - name: Terraform Apply
+        run: terraform -chdir=terraform/environments/qa apply -auto-approve

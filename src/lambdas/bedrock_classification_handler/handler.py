@@ -1,0 +1,1 @@
+import logging\nlogger = logging.getLogger('tf.bedrock_classification_handler')\nlogger.setLevel(logging.INFO)\n\ndef lambda_handler(event, context):\n    logger.info('Stub handler executed', extra={'function':'bedrock_classification_handler'})\n    return {'status':'ok','function':'bedrock_classification_handler'}\n

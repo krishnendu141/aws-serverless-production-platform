@@ -1,0 +1,1 @@
+import logging\nlogger = logging.getLogger('tf.escalation_handler')\nlogger.setLevel(logging.INFO)\n\ndef lambda_handler(event, context):\n    logger.info('Stub handler executed', extra={'function':'escalation_handler'})\n    return {'status':'ok','function':'escalation_handler'}\n

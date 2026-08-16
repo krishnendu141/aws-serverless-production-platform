@@ -1,0 +1,1 @@
+import logging\nlogger = logging.getLogger('tf.sentiment_analyzer')\nlogger.setLevel(logging.INFO)\n\ndef lambda_handler(event, context):\n    logger.info('Stub handler executed', extra={'function':'sentiment_analyzer'})\n    return {'status':'ok','function':'sentiment_analyzer'}\n

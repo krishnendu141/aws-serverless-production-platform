@@ -1,0 +1,1 @@
+import logging\nlogger = logging.getLogger('tf.pii_redaction_handler')\nlogger.setLevel(logging.INFO)\n\ndef lambda_handler(event, context):\n    logger.info('Stub handler executed', extra={'function':'pii_redaction_handler'})\n    return {'status':'ok','function':'pii_redaction_handler'}\n

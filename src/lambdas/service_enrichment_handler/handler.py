@@ -1,0 +1,1 @@
+import logging\nlogger = logging.getLogger('tf.service_enrichment_handler')\nlogger.setLevel(logging.INFO)\n\ndef lambda_handler(event, context):\n    logger.info('Stub handler executed', extra={'function':'service_enrichment_handler'})\n    return {'status':'ok','function':'service_enrichment_handler'}\n
