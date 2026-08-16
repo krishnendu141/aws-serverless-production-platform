@@ -1,0 +1,1 @@
+{"Comment":"State machine for chatbot ingestion and query","StartAt":"Ingest","States":{"Ingest":{"Type":"Task","Resource":"arn:aws:lambda:REGION:ACCOUNT_ID:function:asp-ingest","Next":"WaitForEmbed"},"WaitForEmbed":{"Type":"Wait","Seconds":2,"Next":"QueryBedrock"},"QueryBedrock":{"Type":"Task","Resource":"arn:aws:lambda:REGION:ACCOUNT_ID:function:asp-chatbot","End":true}}}

@@ -1,0 +1,28 @@
+{
+  "title": "Serverless Platform - Overview",
+  "description": "Datadog dashboard sample for serverless platform",
+  "widgets": [
+    {
+      "definition": {
+        "type": "timeseries",
+        "requests": [
+          {
+            "q": "avg:aws.lambda.duration{functionname:asp-chatbot}"
+          }
+        ],
+        "title": "Chatbot Lambda Duration"
+      }
+    },
+    {
+      "definition": {
+        "type": "timeseries",
+        "requests": [
+          {
+            "q": "sum:aws.sqs.approximate_number_of_messages_visible{queuename:asp-work-queue}"
+          }
+        ],
+        "title": "SQS Queue Depth"
+      }
+    }
+  ]
+}

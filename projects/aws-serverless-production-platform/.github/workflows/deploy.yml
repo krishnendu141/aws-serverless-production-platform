@@ -1,0 +1,46 @@
+name: Deploy to AWS (OIDC)
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - chore/serverless-production-platform
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  assume-role:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure AWS credentials using OIDC
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: ${{ secrets.AWS_OIDC_ROLE_ARN }}
+          aws-region: us-east-1
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.5.6
+
+      - name: Terraform init
+        working-directory: projects/aws-serverless-production-platform/infra
+        run: terraform init -input=false
+
+      - name: Terraform plan
+        working-directory: projects/aws-serverless-production-platform/infra
+        run: terraform plan -out=tfplan -input=false
+
+      - name: Terraform apply
+        if: github.event_name == 'workflow_dispatch'
+        working-directory: projects/aws-serverless-production-platform/infra
+        run: terraform apply -input=false tfplan
+
+      - name: Package Lambdas
+        run: bash projects/aws-serverless-production-platform/build/package-lambdas.sh
+
+      - name: Deploy Lambdas (placeholder)
+        run: echo "Lambdas packaged; upload artifacts to S3 and update lambda functions via Terraform or CI step"
