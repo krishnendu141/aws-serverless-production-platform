@@ -1,0 +1,17 @@
+```mermaid
+flowchart TD
+  subgraph API
+    A[API Gateway] --> B[Chatbot Lambda]
+  end
+  B --> C[Step Function]
+  C --> D[Ingest Lambda]
+  C --> E[Bedrock Runtime]
+  B --> F[SQS Work Queue]
+  F --> G[Worker Lambda]
+  D --> H[S3 Document Bucket]
+  H --> I[Vector Store (external)]
+  E --> J[Response]
+
+  classDef infra fill:#f9f,stroke:#333,stroke-width:1px;
+  class A,B,C,D,E,F,G,H,I,J infra;
+```
